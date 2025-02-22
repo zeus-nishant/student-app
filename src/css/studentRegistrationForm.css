@@ -1,0 +1,166 @@
+/* src/css/studentRegistrationForm.css */
+
+.registration-page {
+  background: url("https://i.imgur.com/22k4z3Y.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  margin-left: 60rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  max-width: 400px;
+  width: 100%;
+}
+  
+.styled-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  color: #00b3ff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: #808080;
+  margin-bottom: 2rem;
+}
+
+.styled-text-field {
+  margin-bottom: 1rem;
+}
+
+/* Stronger override for Chrome autofill */
+.styled-text-field .MuiOutlinedInput-root input:-webkit-autofill,
+.styled-text-field .MuiOutlinedInput-root input:-webkit-autofill:hover,
+.styled-text-field .MuiOutlinedInput-root input:-webkit-autofill:focus,
+.styled-text-field .MuiOutlinedInput-root input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #2a2a2a inset !important;
+  -webkit-text-fill-color: white !important;
+  color: white !important;
+  caret-color: white !important;
+  border-radius: 4px !important;
+}
+
+/* Force background color on the input wrapper */
+.styled-text-field .MuiOutlinedInput-root {
+  background-color: #2a2a2a !important;
+  color: white !important;
+  border-color: #404040;
+  margin-bottom: 1rem;
+}
+
+/* Force background and text color on the actual input element */
+.styled-text-field .MuiOutlinedInput-input {
+  background-color: #2a2a2a !important;
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+}
+
+.styled-text-field .MuiInputLabel-root {
+  color: #808080;
+}
+
+.styled-text-field:hover .MuiOutlinedInput-root fieldset {
+  border-color: #00b3ff;
+}
+
+.styled-text-field.Mui-focused .MuiOutlinedInput-root {
+  background-color: #2a2a2a !important;
+  border-color: #00b3ff;
+}
+
+.styled-text-field.Mui-focused .MuiInputLabel-root {
+  color: #00b3ff;
+}
+
+.submit-button {
+  background-color: #00b3ff;
+  color: white;
+  padding: 0.75rem;
+  text-transform: none;
+  position: fixed;
+  z-index: 1;
+}
+
+.submit-button:hover {
+  background-color: #0099ff;
+  z-index: 1;
+}
+
+.submit-button.Mui-disabled {
+  background-color: #0099ff;
+  color: #0099ff;
+}
+
+.alert {
+  margin-top: 2rem;
+  background-color: #2a2a2a;
+  color: #ff4444;
+}
+
+.alert .MuiAlert-icon {
+  color: #ff4444;
+}
+ 
+button {
+  width: 10em;
+  position: relative;
+  height: 3.5em;
+  border: 3px ridge #149CEA;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #212121;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+button::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #212121;
+  transition: 0.5s;
+}
+
+button:hover::before, button:hover::after {
+  transform: scale(0)
+}
+
+button:hover {
+  box-shadow: inset 0px 0px 25px #1479EA;
+}
