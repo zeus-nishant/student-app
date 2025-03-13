@@ -1,5 +1,5 @@
-# Use Node.js for building the app
-FROM node:20-alpine AS builder
+# Use Node.js for building and serving the app
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
@@ -14,20 +14,11 @@ COPY . .
 # Build the React app
 RUN npm run build
 
-# Use Nginx to serve the built frontend
-FROM nginx:1.25-alpine
+# Install serve to host the static files
+RUN npm install -g serve
 
-# Remove default Nginx static file config
-RUN rm -rf /usr/share/nginx/html/*
+# Expose port (Railway typically uses PORT environment variable)
+EXPOSE 8080
 
-# Copy the built frontend files from builder stage
-COPY --from=builder /app/build /usr/share/nginx/html
-
-# Copy a custom Nginx configuration (optional)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start the server using serve
+CMD ["serve", "-s", "build", "-l", "8080"]
