@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TextField, Button, CircularProgress, Alert, MenuItem } from "@mui/material";
 import { toast } from "react-toastify";
 import { StudentRegistrationRequest } from "../context/StudentContext";
@@ -12,15 +12,15 @@ interface RegistrationFormProps {
 
 const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccess }) => {
   const [studentData, setStudentData] = useState<StudentRegistrationRequest>({
-    name: "",
-    email: "",
-    alternateEmail: "",
-    phoneNumber: "",
-    parentsNumber: "",
-    classId: "",
-    gender: "",
-    school: "",
-    gradePercentage: 0,
+    name: "hhdhdhd",
+    email: "shdh@gmail.com",
+    alternateEmail: "shdh@gmail.com",
+    phoneNumber: "9075027197",
+    parentsNumber: "9075027197",
+    classId: "XLD56B",
+    gender: "Male",
+    school: "bsrkv",
+    gradePercentage: 90,
   });
 
   const { classes } = useClassContext();
@@ -36,16 +36,21 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccess }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    await registerStudentInContext(studentData);
-    console.log(error)
-    if (!error) {
+  
+    const errorMessage = await registerStudentInContext(studentData);
+    
+    if (!errorMessage) {
       toast.success("Student registered successfully!");
-      onSuccess(); // Trigger success in parent component
+      onSuccess();
     } else {
-      toast.error(error ?? "Failed to register student");
+      toast.error(errorMessage);
     }
   };
+
+  // Debugging: Log `error` when it changes
+  useEffect(() => {
+    console.log("Updated error state:", error);
+  }, [error]);
 
   return (
     <form className="styled-form" onSubmit={handleSubmit}>

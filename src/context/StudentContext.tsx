@@ -16,7 +16,7 @@ export interface StudentRegistrationRequest {
 interface StudentContextType {
   loading: boolean;
   error: string | null;
-  registerStudentInContext: (studentData: StudentRegistrationRequest) => Promise<void>;
+  registerStudentInContext: (studentData: StudentRegistrationRequest) => Promise<any>;
 }
 
 const StudentContext = createContext<StudentContextType | undefined>(undefined);
@@ -25,26 +25,30 @@ export const StudentProvider = ({ children }: { children: React.ReactNode }) => 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const registerStudentInContext = async (studentData: StudentRegistrationRequest) => {
+  const registerStudentInContext = async (studentData: StudentRegistrationRequest): Promise<string | null> => {
     setLoading(true);
     setError(null);
-
+  
     try {
       const response = await registerStudent(studentData);
       console.log(response);
-
+  
       if (!response.success) {
-        // Display the error message from the API
-        setError(response.message || "Failed to register student");
+        const errorMessage = response.message || "Failed to register student";
+        setError(errorMessage);
+        return errorMessage;
       }
+      return null; // No error
     } catch (err: any) {
-      // Handle unexpected errors, like network issues
       console.error("Unexpected error:", err);
-      setError(err.message || "An unexpected error occurred");
+      const errorMessage = err.message || "An unexpected error occurred";
+      setError(errorMessage);
+      return errorMessage;
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <StudentContext.Provider value={{ loading, error, registerStudentInContext }}>
