@@ -12,15 +12,15 @@ interface RegistrationFormProps {
 
 const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccess }) => {
   const [studentData, setStudentData] = useState<StudentRegistrationRequest>({
-    name: "hhdhdhd",
-    email: "shdh@gmail.com",
-    alternateEmail: "shdh@gmail.com",
-    phoneNumber: "9075027197",
-    parentsNumber: "9075027197",
-    classId: "XLD56B",
-    gender: "Male",
-    school: "bsrkv",
-    gradePercentage: 90,
+    name: "",
+    email: "",
+    alternateEmail: "",
+    phoneNumber: "",
+    parentsNumber: "",
+    classId: "",
+    gender: "",
+    school: "",
+    gradePercentage: 0,
   });
 
   const { classes } = useClassContext();
