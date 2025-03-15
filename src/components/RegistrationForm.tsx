@@ -54,14 +54,14 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccess }) => {
 
   return (
     <form className="styled-form" onSubmit={handleSubmit}>
-      <h2 className="title">Register Student</h2>
+      <h2 className="title">Student Registration</h2>
       <p className="subtitle">Enter student details to register them in the system.</p>
 
       <TextField label="Name" name="name" value={studentData.name} onChange={handleChange} fullWidth required className="styled-text-field" />
       <TextField label="Email" name="email" type="email" value={studentData.email} onChange={handleChange} fullWidth required className="styled-text-field" />
       <TextField label="Alternate Email" name="alternateEmail" type="email" value={studentData.alternateEmail} onChange={handleChange} fullWidth className="styled-text-field" />
-      <TextField label="Phone Number" name="phoneNumber" value={studentData.phoneNumber} onChange={handleChange} fullWidth required className="styled-text-field" />
-      <TextField label="Parent's Number" name="parentsNumber" value={studentData.parentsNumber} onChange={handleChange} fullWidth required className="styled-text-field" />
+      <TextField label="Student's Number" name="phoneNumber" value={studentData.phoneNumber} onChange={handleChange} fullWidth required className="styled-text-field" />
+      <TextField label="Parent's Number(Submitted Number)" name="parentsNumber" value={studentData.parentsNumber} onChange={handleChange} fullWidth required className="styled-text-field" />
       <TextField label="School" name="school" value={studentData.school} onChange={handleChange} fullWidth required className="styled-text-field" />
       <TextField label="Last Year percentage (eg: 80)" name="gradePercentage" value={studentData.gradePercentage} onChange={handleChange} fullWidth required className="styled-text-field" />
 

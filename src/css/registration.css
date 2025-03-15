@@ -1,0 +1,38 @@
+.banner {
+    position: fixed;  /* Fixes the banner on screen */
+    top: 40px;        /* Moves it down slightly from the top */
+    left: 270px;       /* Moved 50px more to the right */
+    width: 500px;
+    height: 150px;
+    background: mediumturquoise;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds depth */
+    z-index: 1000; /* Ensures it stays on top */
+  }
+  
+  /* Strings to give suspended effect */
+  .banner::before,
+  .banner::after {
+    content: "";
+    position: fixed;
+    width: 4px; /* String thickness */
+    height: 50px; /* Length of the string */
+    background: black; /* String color */
+    top: -10px; /* Adjusted to align with banner */
+  }
+  
+  .banner::before {
+    left: 400px; /* Adjusted for new position */
+  }
+  
+  .banner::after {
+    left: 650px; /* Adjusted for symmetry */
+  }
+  
