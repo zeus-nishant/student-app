@@ -164,3 +164,11 @@ button:hover::before, button:hover::after {
 button:hover {
   box-shadow: inset 0px 0px 25px #1479EA;
 }
+.country-code {
+  background: #2e2b2b;
+  color: #f0f0f0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+  

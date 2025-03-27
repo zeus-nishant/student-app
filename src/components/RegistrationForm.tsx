@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TextField, Button, CircularProgress, Alert, MenuItem } from "@mui/material";
+import { TextField, Button, CircularProgress, Alert, MenuItem, InputAdornment } from "@mui/material";
 import { toast } from "react-toastify";
 import { StudentRegistrationRequest } from "../context/StudentContext";
 import { useClassContext } from "../context/ClassContext";
@@ -60,8 +60,20 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccess }) => {
       <TextField label="Name" name="name" value={studentData.name} onChange={handleChange} fullWidth required className="styled-text-field" />
       <TextField label="Email" name="email" type="email" value={studentData.email} onChange={handleChange} fullWidth required className="styled-text-field" />
       <TextField label="Alternate Email" name="alternateEmail" type="email" value={studentData.alternateEmail} onChange={handleChange} fullWidth className="styled-text-field" />
-      <TextField label="Student's Number" name="phoneNumber" value={studentData.phoneNumber} onChange={handleChange} fullWidth required className="styled-text-field" />
-      <TextField label="Parent's Number(Submitted Number)" name="parentsNumber" value={studentData.parentsNumber} onChange={handleChange} fullWidth required className="styled-text-field" />
+      <TextField label="Student's Number" name="phoneNumber" value={studentData.phoneNumber} onChange={handleChange} fullWidth required className="styled-text-field" InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <div className="country-code">+91</div>
+          </InputAdornment>
+        ),
+      }} />
+      <TextField label="Parent's Number(Submitted Number)" name="parentsNumber" value={studentData.parentsNumber} onChange={handleChange} fullWidth required className="styled-text-field" InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <div className="country-code">+91</div>
+          </InputAdornment>
+        ),
+      }} />
       <TextField label="School" name="school" value={studentData.school} onChange={handleChange} fullWidth required className="styled-text-field" />
       <TextField label="Last Year percentage (eg: 80)" name="gradePercentage" value={studentData.gradePercentage} onChange={handleChange} fullWidth required className="styled-text-field" />
 
